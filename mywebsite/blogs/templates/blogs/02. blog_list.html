@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+    {%block title_line%} 
+        All Blog List
+    {%endblock%}
+
+    {%block body_content%}
+        {%include "blogs/includes/01. header.html" with active_page="All Post"%}
+            <h1>These are some personal blogs!</h1>
+            <h2>I write about Python programming language and related stuff!</h2>
+
+            <ul>
+                {% for b in bloglist %}
+                    <li>
+                        <a href="{% url 'allposts' b %}"> 
+                            {{ b|capfirst }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+    {%endblock%}
